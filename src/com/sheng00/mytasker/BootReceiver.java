@@ -9,7 +9,7 @@ public class BootReceiver extends BroadcastReceiver {
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		// TODO Auto-generated method stub
-
+		context.startService(new Intent(context, TaskService.class));
 	}
 
 }
