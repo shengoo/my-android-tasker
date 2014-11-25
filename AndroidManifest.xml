@@ -3,10 +3,19 @@
     package="com.sheng00.mytasker"
     android:versionCode="1"
     android:versionName="1.0" >
+    
+    <supports-screens 
+        android:anyDensity="true" 
+        android:largeScreens="true" 
+        android:normalScreens="true" 
+        android:resizeable="true" 
+        android:smallScreens="true" 
+        android:xlargeScreens="true" />
 
     <uses-sdk
         android:minSdkVersion="16"
         android:targetSdkVersion="21" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <application
         android:allowBackup="true"
@@ -22,6 +31,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service android:name="TaskService" android:process=":background">
+        </service>
+        <receiver android:name="BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
