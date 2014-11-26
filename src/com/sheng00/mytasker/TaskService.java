@@ -77,9 +77,6 @@ public class TaskService extends Service {
 	public void onTaskRemoved(final Intent rootIntent) {
 		super.onTaskRemoved(rootIntent);
 		showTxt("TaskService onTaskRemoved");
-		// Restart service in 500 ms
-		((AlarmManager) getSystemService(Context.ALARM_SERVICE)).set(AlarmManager.RTC, System.currentTimeMillis() + 500,
-				PendingIntent.getService(this, 3, new Intent(this, TaskService.class), 0));
 	}
 	
 	@Override
